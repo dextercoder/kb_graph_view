@@ -66,50 +66,50 @@ class CreatePage:
     '''
     
         self.body = '''
-        <body>
+    <body>
 
-        <div id="VIS_draw"></div>
-        <script type="text/javascript">
-        var nodes = data_nodes;
-        var edges = data_edges;
+    <div id="VIS_draw"></div>
+    <script type="text/javascript">
+    var nodes = data_nodes;
+    var edges = data_edges;
 
-        var container = document.getElementById("VIS_draw");
+    var container = document.getElementById("VIS_draw");
 
-        var data = {
-            nodes: nodes,
-            edges: edges
-        };
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
 
-        var options = {
-            nodes: {
-                shape: 'dot',
-                size: 25,
-                font: {
-                    size: 14
-                }
+    var options = {
+        nodes: {
+            shape: 'dot',
+            size: 25,
+            font: {
+                size: 14
+            }
+        },
+        edges: {
+            font: {
+                size: 14,
+                align: 'left'
             },
-            edges: {
-                font: {
-                    size: 14,
-                    align: 'left'
-                },
-                color: 'red',
-                arrows: {
-                    to: {enabled: true, scaleFactor: 0.5}
-                },
-                smooth: {enabled: true}
+            color: 'red',
+            arrows: {
+                to: {enabled: true, scaleFactor: 0.5}
             },
-            physics: {
-                enabled: true
-            },
-            width: '800px',
-            height: '800px'
-        };
+            smooth: {enabled: true}
+        },
+        physics: {
+            enabled: true
+        },
+        width: '700px',
+        height: '600px'
+    };
 
-        var network = new vis.Network(container, data, options);
+    var network = new vis.Network(container, data, options);
 
-        </script>
-        </body>
+    </script>
+    </body>
         '''
 
     '''生成数据'''

@@ -17,12 +17,12 @@ sys.path.append('.')
 #     a = pd.DataFrame(a, columns=["名称", "相似度"])
 #     return a
 
-kb_selectbox = st.sidebar.selectbox(
+kb_selectbox = st.selectbox(
     "please choose the knownledege base ",
     ("","wiki", "baike", "bigcilin")
 )
 
-num_radio = st.sidebar.radio(
+num_radio = st.radio(
         "Choose frequency show",
         ("","30","50","100","200","300","500")
 )
@@ -55,6 +55,7 @@ if kb_selectbox and num_radio:
         "category": cat,
         "number":num
     })
+    st.write("High Freq category:")
     st.table(data)
     
     
@@ -72,7 +73,7 @@ if kb_selectbox and num_radio:
     meta = '''<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'''
 
     # kb initial
-    word = st.text_input("Your interest entity")
+    word = st.text_input("Input your interest category:")
     handler = SemanticBaike(kb)
     # a = fuzzy_search(data, word)
 
@@ -92,9 +93,4 @@ if kb_selectbox and num_radio:
             html = '<html> ' + head + body + '</html>'
             components.html(html ,width = 800, height=800)
             
-            # with open("word_concept.txt", "r", encoding="utf-8") as file:
-            #     btn = st.download_button(
-            #             label="Download file",
-            #             data=file,
-            #             file_name=word+".txt"
-            #         )
+            
