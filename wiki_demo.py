@@ -24,7 +24,7 @@ kb_selectbox = st.selectbox(
 
 num_radio = st.radio(
         "Choose frequency show",
-        ("","30","50","100","200","300","500")
+        ("","20","30","50","100","200")
 )
 
 if kb_selectbox and num_radio:
