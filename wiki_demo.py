@@ -92,9 +92,9 @@ if kb_selectbox and num_radio:
             html = '<html> ' + head + body + '</html>'
             components.html(html ,width = 800, height=800)
             
-            with open("word_concept.txt", "r", encoding="utf-8") as file:
-                btn = st.download_button(
-                        label="Download file",
-                        data=file,
-                        file_name=word+".txt"
-                    )
+            # with open("word_concept.txt", "r", encoding="utf-8") as file:
+            #     btn = st.download_button(
+            #             label="Download file",
+            #             data=file,
+            #             file_name=word+".txt"
+            #         )
