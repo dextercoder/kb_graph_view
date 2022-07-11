@@ -19,7 +19,7 @@ sys.path.append('.')
 
 kb_selectbox = st.selectbox(
     "please choose the knownledege base ",
-    ("","wiki", "baike", "bigcilin")
+    ("","baike", "bigcilin")
 )
 
 num_radio = st.radio(
