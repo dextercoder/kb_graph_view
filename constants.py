@@ -14,8 +14,14 @@ kb_base = {
     "wiki":{
         "kb_path":"kb/",
         "kb_index_path":"Index/",
-        "kb": "category_relation.txt",
+        "kb": "wiki_cat_hyper_10000000.txt",
         "kb_index_prefix": "wiki"
+    },
+    "hudong":{
+        "kb_path":"kb/",
+        "kb_index_path":"Index/",
+        "kb": "hudong_category.txt",
+        "kb_index_prefix": "hudong"
     }
 }
 

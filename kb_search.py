@@ -269,7 +269,7 @@ class SemanticBaike:
             return
         for hyper in hyper_words:
             depth = 0
-            self.path.append('->'.join([word, hyper]))
+            self.path.append('->'.join([hyper, word]))
             self.hyper_down(hyper, depth)
 
 
