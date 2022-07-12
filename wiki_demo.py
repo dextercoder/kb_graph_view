@@ -16,7 +16,7 @@ def page_show(pages):
     data = np.array(pages).reshape(-1,8)
     return data
     
-def get_cat_pages(path="kb/wiki_cat_hyper_10000000.txt"):
+def get_cat_pages(path="kb/wiki_cat_pages_10000000.txt"):
     cat_pages = dict()
     cp_fp = open(path,"r",encoding="utf-8")
     lines = cp_fp.readlines()
@@ -39,16 +39,16 @@ script_import = '''<script type="text/javascript">'''+ scripts + '''</script>'''
 css_import = '''<script type="text/javascript">''' + css + '''</script>'''
 meta = '''<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'''
 
-cat_pages = get_cat_pages(path="kb/wiki_cat_hyper_10000000.txt")
+cat_pages = get_cat_pages(path="kb/wiki_cat_pages_10000000.txt")
 
 
 kb_selectbox = st.selectbox(
-    "please choose the knownledege base ",
+    "请选择知识库:",
     ("","baike", "hudong","bigcilin","wiki")
 )
 
 num_radio = st.radio(
-        "Choose frequency show",
+        "选择显示知识库中(高频)概念的数量:",
         ("","20","30","50","100","200")
 )
 
@@ -81,14 +81,14 @@ if kb_selectbox and num_radio:
     
 
     # kb initial
-    word = st.text_input("Input your interest category:")
+    word = st.text_input("输入感兴趣的概念(如:'旅游'),以显示下级概念:")
     handler = SemanticBaike(kb)
 
     if word != "":
         # search
         results = search(kb, word)
         opts = [""]+results["content"]
-        pick_word = st.radio("pick one",opts)
+        pick_word = st.radio("选择相关概念显示:",opts)
         
         # graph
         if pick_word != "":
@@ -100,9 +100,11 @@ if kb_selectbox and num_radio:
             html = '<html> ' + head + body + '</html>'
             components.html(html ,width = 800, height=800)
             
-        cat = st.text_input("Input your interest category from up graph:")
+        cat = st.text_input("输入图中概念(如:'地标')以获得概念下的实体:")
         if cat != "":
             if cat in cat_pages:
                 pages = cat_pages[cat].split(",")
                 data = page_show(pages)
                 st.table(data)
+            else:
+                st.write("no entity")
