@@ -39,7 +39,7 @@ script_import = '''<script type="text/javascript">'''+ scripts + '''</script>'''
 css_import = '''<script type="text/javascript">''' + css + '''</script>'''
 meta = '''<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'''
 
-cat_pages = get_cat_pages(path="kb/wiki_cat_pages_10000000.txt")
+# cat_pages = get_cat_pages(path="kb/wiki_cat_pages_10000000.txt")
 
 
 kb_selectbox = st.selectbox(
@@ -100,11 +100,11 @@ if kb_selectbox and num_radio:
             html = '<html> ' + head + body + '</html>'
             components.html(html ,width = 800, height=800)
             
-        cat = st.text_input("输入图中概念(如:'地标')以获得概念下的实体:")
-        if cat != "":
-            if cat in cat_pages:
-                pages = cat_pages[cat].split(",")
-                data = page_show(pages)
-                st.table(data)
-            else:
-                st.write("no entity")
+        # cat = st.text_input("输入图中概念(如:'地标')以获得概念下的实体:")
+        # if cat != "":
+        #     if cat in cat_pages:
+        #         pages = cat_pages[cat].split(",")
+        #         data = page_show(pages)
+        #         st.table(data)
+        #     else:
+        #         st.write("no entity")
