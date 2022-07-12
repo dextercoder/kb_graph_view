@@ -126,9 +126,9 @@ class CreatePage:
 
         for edge in edges:
             data = {}
-            data['from'] = node_dict.get(edge[0])
+            data['from'] = node_dict.get(edge[1])
             data['label'] = 'rel'
-            data['to'] = node_dict.get(edge[1])
+            data['to'] = node_dict.get(edge[0])
             data_edges.append(data)
         return data_nodes, data_edges
 
@@ -276,7 +276,7 @@ class SemanticBaike:
     '''基于既定知识库的深度遍历'''
     def hyper_down(self, word, depth):
         depth += 1
-        if depth > 1:
+        if depth > 2:
             return
         if not word:
             return
